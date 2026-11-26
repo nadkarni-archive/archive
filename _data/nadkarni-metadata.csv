@@ -1,0 +1,4 @@
+objectid,filename,youtubeid,vimeoid,title,creator,date,description,subject,location,latitude,longitude,source,identifier,type,format,language,rights,rightsstatement
+sample_001,demo_001.jpg,,,[Sample item 1],,,"Placeholder record. The image is a CollectionBuilder demo file and will be replaced with a real archive item.",placeholder,,,,,sample_001,Image;StillImage,image/jpeg,,,
+sample_002,210a.jpg,,,[Sample item 2],,,"Placeholder record. The image is a CollectionBuilder demo file and will be replaced with a real archive item.",placeholder,,,,,sample_002,Image;StillImage,image/jpeg,,,
+sample_003,hells_half_theta.jpg,,,[Sample item 3],,,"Placeholder record. The image is a CollectionBuilder demo file and will be replaced with a real archive item.",placeholder,,,,,sample_003,Image;StillImage,image/jpeg,,,

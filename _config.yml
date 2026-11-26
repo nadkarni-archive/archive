@@ -9,10 +9,10 @@
 #
 # url is site domain, full URL to the production location of your collection
 # on GitHub Pages follows the pattern username.github.io
-#url: https://collectionbuilder.github.io 
+url: https://nadkarni-archive.github.io
 # baseurl is path to location on the domain if necessary e.g. /digital/hjccc
 # on GitHub Pages it is your github repository's name prefixed with a /
-#baseurl: /collectionbuilder-gh 
+baseurl: /archive
 # location of code, the full url to your github repository
 source-code: https://github.com/CollectionBuilder/collectionbuilder-gh
 
@@ -20,7 +20,7 @@ source-code: https://github.com/CollectionBuilder/collectionbuilder-gh
 # SITE SETTINGS
 #
 # title of site appears in banner
-title: CollectionBuilder-GH 
+title: The Nadkarni Archive
 # tagline, a short phrase that will appear throughout the site in the top banner
 tagline: a template for creating simple digital exhibits
 # description appears in meta tags and other locations
@@ -34,7 +34,7 @@ author: CollectionBuilder
 #
 # Set the metadata for your collection (the name of the csv file in your _data directory that describes the objects in your collection) 
 # Use the filename of your CSV **without** the ".csv" extension! E.g. _data/demo-metadata.csv --> "demo-metadata"
-metadata: demo-metadata
+metadata: nadkarni-metadata
 
 ##########
 # Site/Organization Branding 
