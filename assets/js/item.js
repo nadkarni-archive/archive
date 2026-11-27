@@ -19,7 +19,9 @@
   var rows = [['Type', it.kind], ['Publication', it.pub], ['Author', it.creator], ['Date', it.dateLabel], ['Language', it.lang], ['Format', it.format], ['Identifier', it.identifier]];
   rows.forEach(function (r) { if (!r[1]) return; var dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = r[0]; dd.textContent = r[1]; $('it-meta').append(dt, dd); });
   var tags = [[it.kind, 'kind', it.kindSlug], [it.pub, 'pub', it.pubSlug], [it.lang, 'lang', (it.lang || '').toLowerCase()], [it.year, 'year', it.year]];
-  tags.forEach(function (t) { if (!t[0]) return; var a = document.createElement('a'); a.className = 'chip chip--dark it__tag'; a.href = arch + '?' + t[1] + '=' + encodeURIComponent(t[2]); a.textContent = t[0]; $('it-tags').append(a); });
+  tags.forEach(function (t) { if (!t[0]) return; var a = document.createElement('a'); a.className = 'chip chip--dark it__tag'; a.href = arch + '?' + t[1] + '=' + encodeURIComponent(t[2]); var key = { kind: 'kindSlug', pub: 'pubSlug', lang: 'lang', year: 'year' }[t[1]];
+    var n = all.filter(function (x) { return String(x[key] || '').toLowerCase() === String(t[1] === 'lang' ? t[0] : t[2]).toLowerCase(); }).length;
+    a.textContent = t[0] + ' (' + n + ')'; $('it-tags').append(a); });
   function step(el, j) { var x = all[(j + all.length) % all.length]; el.href = base + 'item.html?id=' + x.id; el.querySelector('.it__step-title').textContent = x.title; }
   step($('it-prev'), i - 1); step($('it-next'), i + 1);
   $('it').hidden = false;
