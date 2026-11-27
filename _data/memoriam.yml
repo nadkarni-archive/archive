@@ -1,0 +1,207 @@
+# In Memoriam content. Titles, authors and dates are taken from the documents and posts themselves.
+events:
+  - id: iitg
+    venue: Department of Design, IIT Guwahati
+    title: Tribute Gathering
+    date: 22 October 2026
+    date_note: Working date from the photographs; to be confirmed
+    caption: Students, faculty and alumni gathered in the department courtyard, signed the condolence book and planted a tree in his memory.
+    photos: [iitg-01, iitg-02, iitg-03, iitg-04, iitg-05, iitg-06, iitg-07, iitg-08, iitg-09, iitg-10, iitg-11, iitg-12, iitg-13, iitg-14, iitg-15, iitg-16, iitg-17, iitg-18, iitg-19, iitg-20, iitg-21]
+  - id: idc
+    venue: IDC School of Design, IIT Bombay
+    title: Condolence Meeting
+    date: 27 October 2026
+    date_note: From the IDC announcement email
+    youtube: OXhmiUgUYuc
+    youtube_title: "Prof. Sudhakar Nadkarni : Condolence Meeting"
+    youtube_channel: IDC School of Design - Open Seminars
+    caption: Words shared by colleagues, faculty and family at the meeting.
+    photos: [idc-01, idc-02, idc-03, idc-04, idc-05, idc-06, idc-07]
+  - id: pune
+    venue: ADI and the IDC Alumni, Pune
+    title: Remembering Prof. Sudhakar Nadkarni
+    date: 31 October 2026, 5:00–7:00 pm
+    place: Bajaj Gallery, 5th Floor, MCCIA Trade Tower, 403-A Senapati Bapat Road, Pune
+    caption: "We are deeply saddened by the passing of Prof. Sudhakar Nadkarni. Affectionately known as ‘Nadu’ to generations of students, he dedicated his life selflessly to design education and the design profession, leaving behind a legacy for which we will remain forever grateful. ADI and the IDC Alumni invite you to join us in a remembrance meeting to honour his life, his contributions, and the lasting impact he has had on all of us."
+    credit: "Poster photograph: Prof. Sudesh Balan, IDC"
+    photos: [pune-poster, pune-01, pune-02, pune-03, pune-04, pune-05, pune-06, pune-07, pune-08, pune-09, pune-10, pune-11, pune-12]
+
+press:
+  - slug: northeast-now-dies-at-88
+    kind: News
+    source: Northeast Now
+    title: "Assam: IIT Guwahati Design department pioneer Prof Sudhakar Nadkarni dies at 88"
+    by: NE Now News
+    date: Oct 20, 2026
+    url: https://nenow.in/education/assam-iit-guwahati-design-department-pioneer-prof-sudhakar-nadkarni-dies-at-88.html
+  - slug: iitg-dod-condolence-letter
+    kind: Letter
+    source: Department of Design, IIT Guwahati
+    title: Tribute to Prof. Sudhakar Nadkarni
+    by: Prof. Pratul Chandra Kalita, Head of Department
+    date: Oct 20, 2026
+  - slug: mid-day-nadu-made-designs-to-last
+    kind: Column
+    source: Mid-Day, Mumbai Diary
+    title: Nadu made designs to last
+    by: Team mid-day
+    date: Oct 21, 2026
+  - slug: loksatta-vyaktivedh
+    kind: Obituary
+    source: Loksatta
+    title: "व्यक्तिवेध: सुधाकर नाडकर्णी"
+    by: Loksatta Team
+    date: Oct 22, 2026
+  - slug: campaign-design-for-the-common-man
+    kind: Tribute
+    source: Campaign
+    title: "Sudhakar Nadkarni (1936–2026): Design for the common man, not the elite"
+    by: Ramu Ramanathan
+    date: Oct 22, 2026
+  - slug: loksatta-bookmark-design-gurucha-varsagranth
+    kind: Review
+    source: Loksatta, Bookmark
+    title: "‘डिझाइन’गुरूचा वारसाग्रंथ"
+    translation: "A review of his book by design"
+    by: Anil Zankar
+    date: Oct 24, 2026
+  - slug: northeast-now-iitg-pays-tribute
+    kind: News
+    source: Northeast Now
+    title: "Assam: IIT Guwahati pays tribute to Department of Design founder Prof Sudhakar Nadkarni"
+    by: NE Now News
+    date: Oct 24, 2026
+    url: https://nenow.in/education/assam-iit-guwahati-pays-tribute-to-department-of-design-founder-prof-sudhakar-nadkarni.html
+  - slug: rashtramat-design-guruchya-antarangatla-common-man
+    kind: Essay
+    source: Rashtramat
+    title: "डिझाइन गुरुच्या अंतरंगातला ‘कॉमन मॅन’"
+    translation: "The ‘common man’ within the design guru"
+    by: Yashodhara Katkar
+    date: Oct 25, 2026
+  - slug: times-of-india-think-by-design
+    kind: Article
+    source: The Times of India
+    title: "Sudhakar Nadkarni: The man who taught India to think by design"
+    by: Hemali Chhapia
+    date: Oct 26, 2026
+  - slug: the-teacher-who-changed-the-way-i-see-the-world
+    kind: Tribute
+    source: Department of Design, IIT Guwahati
+    title: The Teacher Who Changed the Way I See the World
+    by: Prof. Utpal Barua
+    date: Oct 26, 2026
+  - slug: indian-express-making-of-indian-design
+    kind: Opinion
+    source: The Indian Express
+    title: Sudhakar Nadkarni and the making of Indian design
+    by: Anil Zankar
+    date: Oct 27, 2026
+  - slug: linkedin-final-adieu-prasanna-halbe
+    kind: Article
+    source: LinkedIn
+    title: The Final Adieu to a Visionary Design Guru
+    by: Prasanna Prakash Halbe
+    date: Oct 27, 2026
+  - slug: iitg-a-tribute
+    kind: Tribute
+    source: IIT Guwahati
+    title: "Prof. Sudhakar Nadkarni (1936–2026): A Tribute"
+    by: IIT Guwahati
+    date: ""
+  - slug: a-few-words-from-the-other-side
+    kind: Monologue
+    source: Read at the condolence meeting
+    title: A Few Words from the Other Side
+    translation: "Sudhakar Nadkarni’s monologue on the condolence meeting"
+    by: ""
+    date: ""
+
+social:
+  - platform: YouTube
+    handle: Uday Dandavate
+    title: Beebo Remembers Sudha
+    date: Oct 27, 2026
+    youtube: 4j7PspRoxk8
+  - platform: LinkedIn
+    handle: Kirti Trivedi
+    title: "Homage to Prof Sudhakar Nadkarni: the Padma Shri nomination letter"
+    linkedin: "urn:li:ugcPost:7518133041228156928"
+    url: https://www.linkedin.com/posts/kirti-trivedi-340327271_homage-to-prof-sudhakar-nadkarni-sharing-ugcPost-7518133041228156928-V7dd/
+  - platform: Facebook
+    handle: Pradeep Pendse
+    title: On returning from the final rites
+    facebook: https://www.facebook.com/610909280/posts/10164909558649281/
+  - platform: Facebook
+    handle: Yashodhara Katkar
+    title: "एक तारा निखळला"
+    translation: A star has fallen
+    facebook: https://www.facebook.com/1355719043/posts/10245659476445291/
+  - platform: Facebook
+    handle: Sanjeev Vasant Velankar
+    title: A short introduction to Sudhakar Nadkarni (Marathi)
+    facebook: https://www.facebook.com/sanvelankar/posts/10165061452559059/
+  - platform: Instagram
+    handle: "@indian.design with @adi.community"
+    title: A tribute to the founder of IDC, IIT Bombay
+    instagram: DetVTnSiPb1
+  - platform: Instagram
+    handle: "@adi.community with @adi_punepnq"
+    title: "Invitation to a remembrance meeting, Pune, 31 October 2026"
+    instagram: De9rcnAy28z
+  - platform: Instagram
+    handle: "@uday_dandavate"
+    title: Remembering Prof. Sudhakar Nadkarni
+    instagram: DesY061mKqo
+  - platform: Instagram
+    handle: "@babeladiti"
+    title: End of an era
+    instagram: DetZR9zk-5f
+  - platform: Instagram
+    handle: "@kbapu"
+    title: My guru, mentor and philosopher
+    instagram: Desqf0ZDPYT
+  - platform: Instagram
+    handle: "@kaagazilabs"
+    title: Portraits from 2024, and a farewell
+    instagram: DetgoC1CNzs
+  - platform: Instagram
+    handle: "@kunkichowdhuryofficial"
+    title: A visionary who shaped design education in India
+    instagram: DetYSMKykTU
+  - platform: Instagram
+    handle: "@thegyaanprojectpodcast"
+    title: Remembering a 2018 podcast interview
+    instagram: DetHgGrFA2X
+  - platform: Instagram
+    handle: "@vipulvpandit"
+    title: A portrait made in his memory
+    instagram: De1l5qTzI-B
+  - platform: Instagram
+    handle: "@mitid_pune"
+    title: A short reel on his legacy
+    instagram: De1aiqhjCjG
+  - platform: Instagram
+    handle: "@bike_design_sketch"
+    title: Your legacy will be remembered
+    instagram: De4CQEjN3si
+  - platform: Instagram
+    handle: "@andesignindia"
+    title: Dearest Nadu
+    instagram: DexCe44jtRo
+  - platform: Instagram
+    handle: "@atul.kamble123"
+    title: In today’s Mid-day
+    instagram: DevZC0Oo-N_
+  - platform: Instagram
+    handle: "@denglenarendra"
+    title: At the ‘Reflections on the Bauhaus’ symposium, Pune, 2012
+    instagram: DevfRpYI5qc
+  - platform: Instagram
+    handle: "@isdimumbai"
+    title: A visit to ISDI Mumbai
+    instagram: B7kpHtIp3Ix
+  - platform: Instagram
+    handle: "@generalaesthetic"
+    title: Reading Mandar Rane’s book on Nadkarni
+    instagram: BZNiYEAAqNz
