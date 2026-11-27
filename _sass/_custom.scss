@@ -580,3 +580,10 @@ iframe.yt--on { cursor: auto; }
 html.lb-open { overflow: hidden; }
 @include phone { .lb__fig { width: 100vw; height: 70vh; } .lb__nav { width: 40px; height: 40px; margin-top: -20px; font-size: 22px; } .lb__prev { left: 8px; } .lb__next { right: 8px; } .lb__close { top: 12px; right: 12px; } }
 @media (prefers-reduced-motion: reduce) { .lb, .lb__img { transition: none; } }
+.mm-sub { grid-column: 2; font-family: $mono; font-weight: 500; font-size: 12px; letter-spacing: 0.24px; text-transform: uppercase; color: $gg; margin: 36px 0 14px; }
+.mm-videos { grid-column: 2; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin-top: 28px; }
+.mm-vid { margin: 0; min-width: 0; }
+.mm-vid video { display: block; width: 100%; aspect-ratio: 16 / 9; background: $ink; border-radius: 8px; object-fit: contain; }
+.mm-vid figcaption { margin-top: 8px; font-size: 14px; line-height: 19.6px; color: $gg; }
+.mm-credit-below { grid-column: 2; }
+@include below-desktop { .mm-sub, .mm-videos, .mm-credit-below { grid-column: 1; } }

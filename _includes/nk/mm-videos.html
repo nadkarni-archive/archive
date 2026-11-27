@@ -1,0 +1,6 @@
+{% if include.videos %}<div class="mm-videos">
+    {% for v in include.videos %}<figure class="mm-vid">
+        <video controls preload="none" playsinline poster="{{ '/memoriam/videos/' | append: v.file | append: '.jpg' | relative_url }}"><source src="{{ '/memoriam/videos/' | append: v.file | append: '.mp4' | relative_url }}" type="video/mp4"></video>
+        <figcaption>{{ v.label }}</figcaption>
+    </figure>{% endfor %}
+</div>{% endif %}

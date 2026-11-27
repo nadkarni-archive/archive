@@ -5,8 +5,16 @@ events:
     venue: Department of Design, IIT Guwahati
     title: Tribute Gathering
     date: 22 October 2026
-    date_note: Working date from the photographs; to be confirmed
+    date_note: Prayer assembly at the Department of Design on the evening of 22 October 2026
     caption: Students, faculty and alumni gathered in the department courtyard, signed the condolence book and planted a tree in his memory.
+    videos:
+      - file: iitg-tribute-video
+        label: Tribute film from the Department of Design, IIT Guwahati
+    extra:
+      id: iitg-ppt
+      label: From the department's tribute presentation
+      ratio: 1.4981
+      photos: [iitg-ppt-01, iitg-ppt-02, iitg-ppt-03, iitg-ppt-04, iitg-ppt-05, iitg-ppt-06, iitg-ppt-07, iitg-ppt-08, iitg-ppt-09, iitg-ppt-10, iitg-ppt-11, iitg-ppt-12, iitg-ppt-13, iitg-ppt-14, iitg-ppt-15, iitg-ppt-16, iitg-ppt-17, iitg-ppt-18, iitg-ppt-19, iitg-ppt-20, iitg-ppt-21, iitg-ppt-22, iitg-ppt-23, iitg-ppt-24, iitg-ppt-25, iitg-ppt-26, iitg-ppt-27, iitg-ppt-28, iitg-ppt-29]
     photos: [iitg-01, iitg-02, iitg-03, iitg-04, iitg-05, iitg-06, iitg-07, iitg-08, iitg-09, iitg-10, iitg-11, iitg-12, iitg-13, iitg-14, iitg-15, iitg-16, iitg-17, iitg-18, iitg-19, iitg-20, iitg-21]
   - id: idc
     ratio: 1
@@ -27,7 +35,25 @@ events:
     place: Bajaj Gallery, 5th Floor, 505/506 A/B Wing, MCCIA Trade Tower, 403-A Senapati Bapat Road, Pune, Maharashtra 411016
     caption: "We are deeply saddened by the passing of Prof. Sudhakar Nadkarni. Affectionately known as ‘Nadu’ to generations of students, he dedicated his life selflessly to design education and the design profession, leaving behind a legacy for which we will remain forever grateful. ADI and the IDC Alumni invite you to join us in a remembrance meeting to honour his life, his contributions, and the lasting impact he has had on all of us."
     credit: "Poster photograph: Prof. Sudesh Balan, IDC"
+    videos:
+      - file: pune-talk-1
+        label: A talk at the remembrance meeting
+      - file: pune-talk-2
+        label: A talk at the remembrance meeting (short clip)
+      - file: pune-talk-3
+        label: A talk at the remembrance meeting
     photos: [pune-poster, pune-01, pune-02, pune-03, pune-04, pune-05, pune-06, pune-07, pune-08, pune-09, pune-10, pune-11, pune-12]
+
+memories:
+  ratio: 1.3333
+  intro: Moments with students, colleagues and friends, at work and at events, shared with the family.
+  photos: [mem-01, mem-02, mem-03, mem-04, mem-05, mem-06, mem-07, mem-08, mem-09, mem-10, mem-11, mem-12, mem-13]
+  credits: "Photographs as shared with the family. One shows the date 10 June 2017 (at IDC, with The Design Journey); one is credited © Samyak, 19am.com, 2017; the portrait illustration is by Manish Rangnekar (Doodscapes)."
+  videos:
+    - file: memories-workshop
+      label: Speaking with colleagues in a workshop
+    - file: memories-praveen-nahar
+      label: Video message from Praveen Nahar
 
 press:
   - slug: northeast-now-dies-at-88

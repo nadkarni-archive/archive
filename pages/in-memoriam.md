@@ -13,8 +13,9 @@ permalink: /in-memoriam.html
         </div>
         <nav class="mm-toc" aria-label="On this page" data-appear>
             <a href="#events"><span>01</span>Events</a>
-            <a href="#media"><span>02</span>Media Coverage</a>
-            <a href="#social"><span>03</span>Social Media Posts</a>
+            <a href="#memories"><span>02</span>Memories</a>
+            <a href="#media"><span>03</span>Media Coverage</a>
+            <a href="#social"><span>04</span>Social Media Posts</a>
         </nav>
     </header>
 
@@ -41,28 +42,31 @@ permalink: /in-memoriam.html
                 <p class="mm-video__meta"><span class="mm-video__title">{{ ev.youtube_title }}</span> · {{ ev.youtube_channel }} · <a href="https://www.youtube.com/watch?v={{ ev.youtube }}">Watch on YouTube</a></p>
             </div>
             {% endif %}
-            <div id="mm-car-{{ ev.id }}" class="carousel slide gal__carousel mm-carousel" data-bs-ride="false" data-bs-touch="true" data-ratio="{{ ev.ratio }}" style="--ratio: {{ ev.ratio }};">
-                <div class="carousel-inner">
-                    {% for p in ev.photos %}
-                    <div class="carousel-item{% if forloop.first %} active{% endif %}">
-                        <img src="{{ '/memoriam/events/' | append: p | append: '.jpg' | relative_url }}" alt="{{ ev.title }}, {{ ev.venue }}, photograph {{ forloop.index }} of {{ ev.photos.size }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
-                    </div>
-                    {% endfor %}
-                </div>
-                <button class="gal__arrow gal__arrow--prev" type="button" data-bs-target="#mm-car-{{ ev.id }}" data-bs-slide="prev" aria-label="Previous photograph"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                <button class="gal__arrow gal__arrow--next" type="button" data-bs-target="#mm-car-{{ ev.id }}" data-bs-slide="next" aria-label="Next photograph"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4l6 6-6 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                <div class="gal__count"><span class="mm-current">1</span> / {{ ev.photos.size }}</div>
-                <div class="gal__dots">
-                    {% for p in ev.photos %}<button type="button" data-bs-target="#mm-car-{{ ev.id }}" data-bs-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active" aria-current="true"{% endif %} aria-label="Photograph {{ forloop.index }}"></button>{% endfor %}
-                </div>
-            </div>
+            {% include nk/mm-carousel.html id=ev.id ratio=ev.ratio photos=ev.photos dir='/memoriam/events/' alt=ev.title %}
+            {% include nk/mm-videos.html videos=ev.videos %}
+            {% if ev.extra %}<p class="mm-sub">{{ ev.extra.label }}</p>
+            {% include nk/mm-carousel.html id=ev.extra.id ratio=ev.extra.ratio photos=ev.extra.photos dir='/memoriam/events/' alt=ev.extra.label %}{% endif %}
         </article>
         {% endfor %}
     </section>
 
-    <section class="mm-section" id="media" aria-labelledby="media-h">
+    <section class="mm-section" id="memories" aria-labelledby="memories-h">
         <div class="mm-section__head">
             <span class="mm-section__no">02</span>
+            <h2 class="mm-section__title" id="memories-h" data-split>Memories</h2>
+            <p class="mm-section__count">{{ m.memories.photos.size }} photographs · {{ m.memories.videos.size }} videos</p>
+        </div>
+        <article class="mm-event" data-appear>
+            <header class="mm-event__head"><p class="mm-event__caption">{{ m.memories.intro }}</p></header>
+            {% include nk/mm-carousel.html id='memories' ratio=m.memories.ratio photos=m.memories.photos dir='/memoriam/memories/' alt='Memories' %}
+            <p class="mm-event__credit mm-credit-below">{{ m.memories.credits }}</p>
+            {% include nk/mm-videos.html videos=m.memories.videos %}
+        </article>
+    </section>
+
+    <section class="mm-section" id="media" aria-labelledby="media-h">
+        <div class="mm-section__head">
+            <span class="mm-section__no">03</span>
             <h2 class="mm-section__title" id="media-h" data-split>Media Coverage</h2>
             <p class="mm-section__count">{{ m.press.size }} articles and tributes</p>
         </div>
@@ -85,7 +89,7 @@ permalink: /in-memoriam.html
 
     <section class="mm-section" id="social" aria-labelledby="social-h">
         <div class="mm-section__head">
-            <span class="mm-section__no">03</span>
+            <span class="mm-section__no">04</span>
             <h2 class="mm-section__title" id="social-h" data-split>Social Media Posts</h2>
             <p class="mm-section__count">{{ m.social.size }} posts</p>
         </div>

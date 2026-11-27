@@ -1,0 +1,15 @@
+<div id="mm-car-{{ include.id }}" class="carousel slide gal__carousel mm-carousel" data-bs-ride="false" data-bs-touch="true" data-ratio="{{ include.ratio }}" style="--ratio: {{ include.ratio }};">
+    <div class="carousel-inner">
+        {% for p in include.photos %}
+        <div class="carousel-item{% if forloop.first %} active{% endif %}">
+            <img src="{{ include.dir | append: p | append: '.jpg' | relative_url }}" alt="{{ include.alt }}, photograph {{ forloop.index }} of {{ include.photos.size }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+        </div>
+        {% endfor %}
+    </div>
+    <button class="gal__arrow gal__arrow--prev" type="button" data-bs-target="#mm-car-{{ include.id }}" data-bs-slide="prev" aria-label="Previous photograph"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="gal__arrow gal__arrow--next" type="button" data-bs-target="#mm-car-{{ include.id }}" data-bs-slide="next" aria-label="Next photograph"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4l6 6-6 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="gal__count"><span class="mm-current">1</span> / {{ include.photos.size }}</div>
+    <div class="gal__dots">
+        {% for p in include.photos %}<button type="button" data-bs-target="#mm-car-{{ include.id }}" data-bs-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active" aria-current="true"{% endif %} aria-label="Photograph {{ forloop.index }}"></button>{% endfor %}
+    </div>
+</div>
