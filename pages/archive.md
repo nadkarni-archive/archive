@@ -23,6 +23,7 @@ permalink: /archive.html
         <div class="ar-filter">
             <p class="ar-filter__label">Collection</p>
             <div class="ar-filter__chips" role="group" aria-label="Filter by collection">
+                <button type="button" class="chip fchip" data-f="tag" data-v="nadu-75-booklet" aria-pressed="false">Nadu 75 booklet <span class="fchip__n"></span></button>
                 <button type="button" class="chip fchip" data-f="tag" data-v="in-memoriam" aria-pressed="false">In Memoriam <span class="fchip__n"></span></button>
             </div>
         </div>
@@ -34,6 +35,7 @@ permalink: /archive.html
                 <button type="button" class="chip fchip" data-f="kind" data-v="photo" aria-pressed="false">Photographs <span class="fchip__n"></span></button>
                 <button type="button" class="chip fchip" data-f="kind" data-v="tribute" aria-pressed="false">Tributes &amp; letters <span class="fchip__n"></span></button>
                 <button type="button" class="chip fchip" data-f="kind" data-v="event" aria-pressed="false">Events <span class="fchip__n"></span></button>
+                <button type="button" class="chip fchip" data-f="kind" data-v="booklet" aria-pressed="false">Booklet pages <span class="fchip__n"></span></button>
             </div>
         </div>
         <div class="ar-filter">
@@ -49,6 +51,7 @@ permalink: /archive.html
                 <button type="button" class="chip fchip" data-f="lang" data-v="english" aria-pressed="false">English <span class="fchip__n"></span></button>
                 <button type="button" class="chip fchip" data-f="lang" data-v="marathi" aria-pressed="false">Marathi <span class="fchip__n"></span></button>
                 <button type="button" class="chip fchip" data-f="lang" data-v="hindi" aria-pressed="false">Hindi <span class="fchip__n"></span></button>
+                <button type="button" class="chip fchip" data-f="lang" data-v="german" aria-pressed="false">German <span class="fchip__n"></span></button>
             </div>
         </div>
         <div class="ar-filter">
@@ -91,7 +94,7 @@ permalink: /archive.html
                     </span>
                     <span class="ar-item__kind"><span class="chip chip--dark">{{ kind | upcase }}</span></span>
                     <span class="ar-item__source">{% if pub != "" %}{{ pub }}{% if it.creator != "" %}<br><span class="ar-item__by">{{ it.creator }}</span>{% endif %}{% else %}&ndash;{% endif %}</span>
-                    <span class="ar-item__date">{% if it.date != "" %}{{ it.date | date: "%b %-d, %Y" }}{% else %}&ndash;{% endif %}</span>
+                    <span class="ar-item__date">{% if date_label != "" %}{{ date_label }}{% else %}&ndash;{% endif %}</span>
                     <span class="ar-item__lang">{% if lang_name != "" %}{{ lang_name }}{% else %}&ndash;{% endif %}</span>
                 </a>
             </li>

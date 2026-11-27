@@ -559,3 +559,24 @@ iframe.yt--on { cursor: auto; }
 .it__photos-grid a:hover img { transform: scale(1.04); }
 @include tablet { .it__photos-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @include phone { .it__photos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; } }
+
+/* photo overlay (Gallery), matched to the original site's overlay */
+.lb { position: fixed; inset: 0; z-index: 1100; background: #000; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 250ms ease; }
+.lb.is-open { opacity: 1; }
+.lb[hidden] { display: none; }
+.lb__fig { margin: 0; width: 90vw; height: 81vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.lb__img { max-width: 100%; max-height: calc(100% - 32px); object-fit: contain; border-radius: 4px; opacity: 0; transform: scale(0.97); transition: opacity 300ms ease, transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+.lb__img.is-in { opacity: 1; transform: none; }
+.lb__cap { display: flex; gap: 20px; align-items: center; font-family: $mono; font-weight: 500; font-size: 12px; letter-spacing: 0.24px; color: rgba(249, 245, 235, 0.8); }
+.lb__arch { color: $cream; text-decoration: underline; text-underline-offset: 3px; text-transform: uppercase; }
+.lb__arch:hover { color: #fff; }
+.lb__btn { position: absolute; border: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color 200ms, transform 200ms; }
+.lb__close { top: 20px; right: 20px; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.9); }
+.lb__close:hover { background: #fff; }
+.lb__nav { top: 50%; width: 52px; height: 52px; margin-top: -26px; background: rgba(255, 255, 255, 0.15); color: #fff; font-size: 28px; line-height: 1; padding-bottom: 4px; }
+.lb__nav:hover { background: rgba(255, 255, 255, 0.3); }
+.lb__prev { left: 24px; } .lb__next { right: 24px; }
+.lb__btn:focus-visible, .lb__arch:focus-visible { outline: 2px solid $orange; outline-offset: 2px; }
+html.lb-open { overflow: hidden; }
+@include phone { .lb__fig { width: 100vw; height: 70vh; } .lb__nav { width: 40px; height: 40px; margin-top: -20px; font-size: 22px; } .lb__prev { left: 8px; } .lb__next { right: 8px; } .lb__close { top: 12px; right: 12px; } }
+@media (prefers-reduced-motion: reduce) { .lb, .lb__img { transition: none; } }

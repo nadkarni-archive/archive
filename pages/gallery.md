@@ -18,7 +18,7 @@ permalink: /gallery.html
             <div class="carousel-inner">
                 {% for item in thoughts %}
                 <div class="carousel-item{% if forloop.first %} active{% endif %}">
-                    <a href="{{ '/item.html?id=' | append: item.objectid | relative_url }}"><img src="{{ '/objects/' | append: item.filename | relative_url }}" alt="{{ item.title | escape }}"></a>
+                    <a data-lightbox="thoughts" href="{{ '/item.html?id=' | append: item.objectid | relative_url }}"><img src="{{ '/objects/' | append: item.filename | relative_url }}" alt="{{ item.title | escape }}"></a>
                 </div>
                 {% endfor %}
             </div>
@@ -39,7 +39,8 @@ permalink: /gallery.html
     </div>
     <div class="photo-grid" data-stagger="70">
         {% for item in photos %}
-        <a data-appear="img" class="photo-grid__item photo-grid__item--{{ forloop.index }}" href="{{ '/item.html?id=' | append: item.objectid | relative_url }}"><img loading="lazy" src="{{ '/objects/' | append: item.filename | relative_url }}" alt="{{ item.title | escape }}"></a>
+        <a data-lightbox="photos" data-appear="img" class="photo-grid__item photo-grid__item--{{ forloop.index }}" href="{{ '/item.html?id=' | append: item.objectid | relative_url }}"><img loading="lazy" src="{{ '/objects/' | append: item.filename | relative_url }}" alt="{{ item.title | escape }}"></a>
         {% endfor %}
     </div>
 </div>
+<script src="{{ '/assets/js/lightbox.js' | relative_url }}" defer></script>

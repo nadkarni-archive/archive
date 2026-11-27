@@ -1,11 +1,14 @@
 {%- comment -%} sets: kind, kind_slug, glyph, year, lang_name, pub for include.item {%- endcomment -%}
 {%- assign it = include.item -%}
 {%- if it.kind == "Tribute" -%}{%- assign kind = "Tribute & letter" -%}{%- assign kind_slug = "tribute" -%}{%- assign glyph = "circle" -%}
+{%- elsif it.kind == "Booklet page" -%}{%- assign kind = "Booklet page" -%}{%- assign kind_slug = "booklet" -%}{%- assign glyph = "square" -%}
 {%- elsif it.kind == "Event" -%}{%- assign kind = "Event" -%}{%- assign kind_slug = "event" -%}{%- assign glyph = "triangle" -%}
 {%- elsif it.subject == "Press" or it.kind == "Press clipping" -%}{%- assign kind = "Press clipping" -%}{%- assign kind_slug = "press" -%}{%- assign glyph = "square" -%}
 {%- elsif it.subject == "Photo Gallery" -%}{%- assign kind = "Photograph" -%}{%- assign kind_slug = "photo" -%}{%- assign glyph = "triangle" -%}
 {%- else -%}{%- assign kind = "Letter & sketch" -%}{%- assign kind_slug = "letter" -%}{%- assign glyph = "circle" -%}{%- endif -%}
 {%- assign year = it.date | slice: 0, 4 -%}
-{%- case it.language -%}{%- when "mar" -%}{%- assign lang_name = "Marathi" -%}{%- when "hin" -%}{%- assign lang_name = "Hindi" -%}{%- when "eng" -%}{%- assign lang_name = "English" -%}{%- else -%}{%- assign lang_name = "" -%}{%- endcase -%}
+{%- case it.language -%}{%- when "mar" -%}{%- assign lang_name = "Marathi" -%}{%- when "hin" -%}{%- assign lang_name = "Hindi" -%}{%- when "eng" -%}{%- assign lang_name = "English" -%}{%- when "deu" -%}{%- assign lang_name = "German" -%}{%- else -%}{%- assign lang_name = "" -%}{%- endcase -%}
 {%- assign pub = it.source | remove: ":" | strip -%}
 {%- if it.tag != nil and it.tag != "" -%}{%- assign tag_slug = it.tag | slugify -%}{%- else -%}{%- assign tag_slug = "" -%}{%- endif -%}
+
+{%- if it.date.size == 4 -%}{%- assign date_label = it.date -%}{%- elsif it.date != "" and it.date != nil -%}{%- assign date_label = it.date | date: "%b %-d, %Y" -%}{%- else -%}{%- assign date_label = "" -%}{%- endif -%}
