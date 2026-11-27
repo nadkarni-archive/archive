@@ -1,0 +1,38 @@
+{%- assign overlay = false -%}{%- if page.layout == 'home-nadkarni' -%}{%- assign overlay = true -%}{%- endif -%}
+<header id="site-header" class="sh{% if overlay %} sh--overlay{% endif %}">
+    <div class="sh__container">
+        <div class="sh__top">
+            <a class="sh__name" href="{{ '/' | relative_url }}">SUDHAKAR NADKARNI</a>
+            <button class="sh__icon" type="button" aria-controls="sh-links" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="sh__links" id="sh-links" aria-label="Main">
+            {%- assign navItems = site.data.config-nav | where_exp: 'item', 'item.display_name' | where_exp: 'item', 'item.dropdown_parent == nil' -%}
+            {% for nav in navItems %}
+            {% if nav.stub %}
+            <a class="sh__link{% if page.url == nav.stub %} is-active{% endif %}" href="{{ nav.stub | relative_url }}">{{ nav.display_name }}</a>
+            {% else %}
+            {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
+            {%- assign childStubs = navChildren | map: 'stub' -%}
+            <div class="sh__drop dropdown">
+                <a class="sh__link dropdown-toggle{% if childStubs contains page.url %} is-active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ nav.display_name }}</a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    {% for c in navChildren %}<li><a class="dropdown-item" href="{{ c.stub | relative_url }}">{{ c.display_name }}</a></li>{% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </nav>
+        <span class="sh__vline" aria-hidden="true"></span>
+    </div>
+    <span class="sh__hline" aria-hidden="true"></span>
+</header>
+<script>
+(function(){
+    var h = document.getElementById('site-header'), b = h.querySelector('.sh__icon');
+    b.addEventListener('click', function(){ var o = h.classList.toggle('is-open'); b.setAttribute('aria-expanded', o); });
+    if (h.classList.contains('sh--overlay')) {
+        var f = function(){ h.classList.toggle('is-scrolled', window.scrollY > window.innerHeight * 0.55); };
+        f(); if (!document.documentElement.classList.contains('js-motion')) window.addEventListener('scroll', f, { passive: true });
+    }
+})();
+</script>

@@ -1,0 +1,83 @@
+/* Motion for the Nadkarni Archive.
+   Copied from sudhakarnadkarni.org (Framer): appear = opacity 0 -> 1 + rise 80px, 550ms;
+   text effect = each line rises 50px, 550ms, lines staggered ~90ms; rolling text on Buy Online.
+   Everything here only runs when <html> has .js-motion, which is never set under
+   prefers-reduced-motion, and is removed again if motion.js fails to start. */
+:root {
+  --m-ease: cubic-bezier(0.25, 0.1, 0.25, 1);        /* Framer default ease, measured */
+  --m-ease-out: cubic-bezier(0.22, 1, 0.36, 1);       /* UI transitions */
+  --m-ease-io: cubic-bezier(0.65, 0, 0.35, 1);        /* slides */
+  --m-dur: 550ms;
+}
+
+/* ---------- page transitions ---------- */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 280ms; animation-timing-function: var(--m-ease-out); }
+#site-header { view-transition-name: site-header; }
+::view-transition-group(site-header) { animation-duration: 0s; }
+@supports not (view-transition-name: none) {
+  .js-motion main#maincontent { animation: m-page-in 320ms var(--m-ease-out) both; }
+}
+@keyframes m-page-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- appear on scroll ---------- */
+.js-motion [data-appear] { transition: opacity var(--m-dur) var(--m-ease), transform var(--m-dur) var(--m-ease); transition-delay: var(--m-delay, 0ms); }
+.js-motion [data-appear]:not(.is-in) { opacity: 0; transform: translateY(24px); }
+.js-motion [data-appear="chip"]:not(.is-in) { transform: translateY(80px); }
+.js-motion [data-appear="fade"]:not(.is-in) { transform: none; }
+.js-motion [data-appear="img"]:not(.is-in) { transform: translateY(24px) scale(0.985); }
+
+/* ---------- text effect (line by line) ---------- */
+.js-motion [data-split] .m-w { display: inline-block; transition: opacity var(--m-dur) var(--m-ease), transform var(--m-dur) var(--m-ease); transition-delay: var(--m-delay, 0ms); }
+.js-motion [data-split]:not(.is-in) .m-w { opacity: 0; transform: translateY(50px); }
+.js-motion [data-split].is-split { visibility: visible; }
+
+/* ---------- rolling text buttons (hover) ---------- */
+.roll { overflow: hidden; }
+.roll__a, .roll__b { display: block; transition: transform 600ms var(--m-ease-out); }
+.roll__b { position: absolute; left: 0; right: 0; text-align: center; top: 42px; font-family: "Inter", sans-serif; }
+@media (hover: hover) {
+  .roll:hover .roll__a, .roll:focus-visible .roll__a { transform: translateY(-34px); }
+  .roll:hover .roll__b, .roll:focus-visible .roll__b { transform: translateY(-34px); }
+}
+
+/* ---------- small hovers (improved) ---------- */
+.explore__link img { transition: transform 300ms var(--m-ease-out); }
+.explore:hover .explore__link img { transform: translateX(6px); }
+.art__img img, .photo-grid__item img, .gal__carousel img { transition: transform 600ms var(--m-ease-out), filter 300ms; }
+.photo-grid__item { overflow: hidden; }
+@media (hover: hover) { .photo-grid__item:hover img { transform: scale(1.03); } }
+.sh__link, .sh__name { transition: color 200ms; }
+.cta__copy, .btn-dark, .btn-light { transition: background-color 200ms, color 200ms; }
+
+/* ---------- header swap (copied: slides out and back when it changes style) ---------- */
+.sh { transition: transform 280ms var(--m-ease-out), background-color 200ms, color 200ms; }
+.sh.is-swapping { transform: translateY(-100%); }
+
+/* ---------- phone/tablet menu ---------- */
+@media (max-width: 1199.98px) {
+  .sh .sh__links { display: flex; max-height: 0; padding-top: 0; padding-bottom: 0; opacity: 0; overflow: hidden; visibility: hidden;
+    transition: max-height 380ms var(--m-ease-out), padding 380ms var(--m-ease-out), opacity 240ms, visibility 0s 380ms; }
+  .sh.is-open .sh__links { max-height: 480px; padding-top: 20px; padding-bottom: 20px; opacity: 1; visibility: visible; transition: max-height 420ms var(--m-ease-out), padding 420ms var(--m-ease-out), opacity 240ms, visibility 0s; }
+  .sh__links > * { transition: opacity 300ms var(--m-ease-out), transform 300ms var(--m-ease-out); }
+  .sh:not(.is-open) .sh__links > * { opacity: 0; transform: translateY(-6px); }
+  .sh.is-open .sh__links > *:nth-child(1) { transition-delay: 60ms; } .sh.is-open .sh__links > *:nth-child(2) { transition-delay: 100ms; }
+  .sh.is-open .sh__links > *:nth-child(3) { transition-delay: 140ms; } .sh.is-open .sh__links > *:nth-child(4) { transition-delay: 180ms; }
+  .sh.is-open .sh__links > *:nth-child(5) { transition-delay: 220ms; } .sh.is-open .sh__links > *:nth-child(6) { transition-delay: 260ms; }
+  .sh { height: auto; }
+}
+
+/* ---------- carousel (smoother) ---------- */
+.gal__carousel .carousel-item { transition: transform 700ms var(--m-ease-io); }
+.gal__arrow { transition: background-color 200ms, transform 200ms; }
+.gal__arrow:hover { background: rgba(0, 0, 0, 0.8); }
+.gal__dots button { transition: background-color 300ms, transform 300ms; }
+.gal__dots button.active { transform: scale(1.25); }
+
+/* ---------- hero load (improved) ---------- */
+.hero__video { transition: opacity 800ms var(--m-ease); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  @view-transition { navigation: none; }
+}

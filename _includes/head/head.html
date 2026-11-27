@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
-<link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+<link rel="icon" type="image/png" href="{{ '/assets/img/site/favicon.png' | relative_url }}">
 <!--
   _____     ____        __  _           ___       _ __   __       
  / ___/__  / / /__ ____/ /_(_)__  ___  / _ )__ __(_) /__/ /__ ____
@@ -26,6 +26,11 @@
 
 <!-- load custom css last to allow overrides -->
 <link rel="stylesheet" href="{{ '/assets/css/cb.css' | relative_url }}" type="text/css">
+<link rel="stylesheet" href="{{ '/assets/css/motion.css' | relative_url }}" type="text/css">
+<script>
+/* motion only when the visitor has not asked for reduced motion; undo if motion.js never starts */
+(function(){var d=document.documentElement;if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){d.classList.add('js-motion');setTimeout(function(){if(!window.__motionReady)d.classList.remove('js-motion');},3000);}})();
+</script>
 
 {% comment %} 
     Meta tags and analytics are adding during production build ONLY.

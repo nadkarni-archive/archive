@@ -1,9 +1,11 @@
 display_name,stub,dropdown_parent
-Home,/
-Browse,/browse.html
-Subjects,/subjects.html
-Locations,/locations.html
-Map,/map.html
-Timeline,/timeline.html
-Data,/data.html
-About,/about.html
+About,/about.html,
+Books & Media,/books-and-media.html,
+Indian Design History,/indian-design-history.html,
+Gallery,/gallery.html,
+In Memoriam,/in-memoriam.html,
+Archive,,
+Browse,/browse.html,Archive
+Subjects,/subjects.html,Archive
+Data,/data.html,Archive
+Search,/search/,Archive
