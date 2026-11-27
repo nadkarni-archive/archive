@@ -9,7 +9,7 @@
   var chips = Array.prototype.slice.call(document.querySelectorAll('.fchip'));
   var sortBtns = Array.prototype.slice.call(document.querySelectorAll('[data-sort]'));
   var viewBtns = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
-  var state = { q: '', f: { kind: [], pub: [], lang: [], year: [] }, sort: 'collection', view: 'grid' };
+  var state = { q: '', f: { tag: [], kind: [], pub: [], lang: [], year: [] }, sort: 'collection', view: 'grid' };
 
   function readURL() {
     var p = new URLSearchParams(location.search);

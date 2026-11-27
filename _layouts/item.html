@@ -16,6 +16,7 @@ layout: default
             <h1 class="it__title" id="it-title"></h1>
             <p class="it__tr" id="it-tr"></p>
             <p class="it__by" id="it-by"></p>
+            <div class="it__actions" id="it-actions"></div>
             <dl class="it__meta" id="it-meta"></dl>
             <div class="it__tags" id="it-tags"></div>
             <div class="it__nav">
@@ -24,11 +25,12 @@ layout: default
             </div>
             <a class="explore" href="{{ '/archive.html' | relative_url }}"><span class="explore__label">Back to</span><span class="explore__link">The Archive<img src="{{ '/assets/img/site/arrow-right.png' | relative_url }}" alt="" width="32" height="32"></span></a>
         </div>
+        <div class="it__photos" id="it-photos" hidden></div>
     </article>
     <div class="it-missing" id="it-missing" hidden><p class="it__title">Item not found.</p><p><a href="{{ '/archive.html' | relative_url }}">Browse the archive</a></p></div>
 </div>
 <script>
-window.NK_ITEMS = [{% for it in items %}{% include nk/item-vars.html item=it %}{"id":{{ it.objectid | jsonify }},"file":{{ it.filename | jsonify }},"title":{{ it.title | jsonify }},"desc":{{ it.description | jsonify }},"creator":{{ it.creator | jsonify }},"date":{{ it.date | jsonify }},"dateLabel":{% if it.date != "" %}{{ it.date | date: "%b %-d, %Y" | jsonify }}{% else %}""{% endif %},"pub":{{ pub | jsonify }},"pubSlug":{{ pub | slugify | jsonify }},"kind":{{ kind | jsonify }},"kindSlug":{{ kind_slug | jsonify }},"lang":{{ lang_name | jsonify }},"year":{{ year | jsonify }},"format":{{ it.format | jsonify }},"identifier":{{ it.identifier | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}];
+window.NK_ITEMS = [{% for it in items %}{% include nk/item-vars.html item=it %}{"id":{{ it.objectid | jsonify }},"file":{{ it.filename | jsonify }},"title":{{ it.title | jsonify }},"desc":{{ it.description | jsonify }},"creator":{{ it.creator | jsonify }},"date":{{ it.date | jsonify }},"dateLabel":{% if it.date != "" %}{{ it.date | date: "%b %-d, %Y" | jsonify }}{% else %}""{% endif %},"pub":{{ pub | jsonify }},"pubSlug":{{ pub | slugify | jsonify }},"kind":{{ kind | jsonify }},"kindSlug":{{ kind_slug | jsonify }},"lang":{{ lang_name | jsonify }},"year":{{ year | jsonify }},"format":{{ it.format | jsonify }},"identifier":{{ it.identifier | jsonify }},"tag":{{ it.tag | default: "" | jsonify }},"tagSlug":{{ tag_slug | jsonify }},"pdf":{{ it.pdf | default: "" | jsonify }},"url":{{ it.url | default: "" | jsonify }},"photos":{{ it.photos | default: "" | jsonify }},"youtube":{{ it.youtubeid | default: "" | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}];
 window.NK_BASE = {{ '/' | relative_url | jsonify }};
 </script>
 <script src="{{ '/assets/js/item.js' | relative_url }}" defer></script>

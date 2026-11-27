@@ -548,3 +548,14 @@ iframe.yt--on { cursor: auto; }
 @include phone { .mm-social { grid-template-columns: minmax(0, 1fr); } }
 .mm-event__place { font-size: 16px; line-height: 22.4px; color: $gg; }
 .mm-event__credit { font-family: $mono; font-weight: 500; font-size: 12px; letter-spacing: 0.24px; color: rgba(47, 56, 51, 0.7); margin-top: 10px; }
+.it__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.it__actions:empty { display: none; }
+.it__photos { grid-column: 1 / -1; margin-top: 56px; padding-top: 24px; border-top: 1px solid $line-dark; }
+.it__photos[hidden] { display: none; }
+.it__photos-label { font-family: $mono; font-weight: 500; font-size: 12px; letter-spacing: 0.24px; text-transform: uppercase; color: $gg; margin-bottom: 16px; }
+.it__photos-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.it__photos-grid a { display: block; aspect-ratio: 4 / 3; background: $cream; overflow: hidden; }
+.it__photos-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms; }
+.it__photos-grid a:hover img { transform: scale(1.04); }
+@include tablet { .it__photos-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@include phone { .it__photos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; } }

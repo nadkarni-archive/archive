@@ -4,7 +4,7 @@ layout: page-nadkarni
 permalink: /archive.html
 ---
 {%- assign items = site.data[site.metadata] -%}
-{%- assign pubs = items | where: "subject", "Press" | map: "source" | uniq | sort -%}
+{%- assign press_a = items | where: "subject", "Press" -%}{%- assign press_b = items | where: "kind", "Press clipping" -%}{%- assign pubs = press_a | concat: press_b | map: "source" | uniq | sort -%}
 <div class="pg pg--archive">
     <header class="ar-head">
         <div class="ar-head__left">
@@ -21,11 +21,19 @@ permalink: /archive.html
 
     <div class="ar-filters" data-appear>
         <div class="ar-filter">
+            <p class="ar-filter__label">Collection</p>
+            <div class="ar-filter__chips" role="group" aria-label="Filter by collection">
+                <button type="button" class="chip fchip" data-f="tag" data-v="in-memoriam" aria-pressed="false">In Memoriam <span class="fchip__n"></span></button>
+            </div>
+        </div>
+        <div class="ar-filter">
             <p class="ar-filter__label">Type</p>
             <div class="ar-filter__chips" role="group" aria-label="Filter by type">
                 <button type="button" class="chip fchip" data-f="kind" data-v="press" aria-pressed="false">Press clippings <span class="fchip__n"></span></button>
                 <button type="button" class="chip fchip" data-f="kind" data-v="letter" aria-pressed="false">Letters &amp; sketches <span class="fchip__n"></span></button>
                 <button type="button" class="chip fchip" data-f="kind" data-v="photo" aria-pressed="false">Photographs <span class="fchip__n"></span></button>
+                <button type="button" class="chip fchip" data-f="kind" data-v="tribute" aria-pressed="false">Tributes &amp; letters <span class="fchip__n"></span></button>
+                <button type="button" class="chip fchip" data-f="kind" data-v="event" aria-pressed="false">Events <span class="fchip__n"></span></button>
             </div>
         </div>
         <div class="ar-filter">
@@ -73,7 +81,7 @@ permalink: /archive.html
         <div class="ar-listhead" aria-hidden="true"><span>No.</span><span>Title</span><span>Type</span><span>Publication / author</span><span>Date</span><span>Language</span></div>
         <ol class="ar-grid" id="ar-grid">
             {% for it in items %}{% include nk/item-vars.html item=it %}
-            <li class="ar-item" data-appear data-i="{{ forloop.index }}" data-kind="{{ kind_slug }}" data-pub="{{ pub | slugify }}" data-lang="{{ lang_name | downcase }}" data-year="{{ year }}" data-date="{{ it.date }}" data-text="{{ it.title | append: ' ' | append: it.description | append: ' ' | append: pub | append: ' ' | append: it.creator | append: ' ' | append: kind | append: ' ' | append: lang_name | append: ' ' | append: year | downcase | escape }}">
+            <li class="ar-item" data-appear data-i="{{ forloop.index }}" data-kind="{{ kind_slug }}" data-pub="{{ pub | slugify }}" data-lang="{{ lang_name | downcase }}" data-year="{{ year }}" data-tag="{{ tag_slug }}" data-date="{{ it.date }}" data-text="{{ it.title | append: ' ' | append: it.description | append: ' ' | append: pub | append: ' ' | append: it.creator | append: ' ' | append: kind | append: ' ' | append: lang_name | append: ' ' | append: year | downcase | escape }}">
                 <a class="ar-item__link" href="{{ '/item.html?id=' | append: it.objectid | relative_url }}">
                     <span class="ar-item__frame"><img loading="lazy" src="{{ '/objects/' | append: it.filename | relative_url }}" alt=""></span>
                     <span class="ar-item__no">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
