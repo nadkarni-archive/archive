@@ -11,8 +11,11 @@
     });
   });
   document.querySelectorAll('.mm-carousel').forEach(function (c) {
-    var cur = c.querySelector('.mm-current');
-    c.addEventListener('slid.bs.carousel', function (e) { cur.textContent = e.to + 1; });
+    var r = parseFloat(c.dataset.ratio) || 1.333;
+    c.querySelectorAll('img').forEach(function (im) {
+      function fit() { if (im.naturalWidth) im.classList.toggle('is-fill', im.naturalWidth / im.naturalHeight >= r - 0.01); }
+      if (im.complete) fit(); else im.addEventListener('load', fit);
+    });
   });
   var social = document.getElementById('social');
   function loadEmbeds() {

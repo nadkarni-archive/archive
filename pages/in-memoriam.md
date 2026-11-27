@@ -41,7 +41,7 @@ permalink: /in-memoriam.html
                 <p class="mm-video__meta"><span class="mm-video__title">{{ ev.youtube_title }}</span> · {{ ev.youtube_channel }} · <a href="https://www.youtube.com/watch?v={{ ev.youtube }}">Watch on YouTube</a></p>
             </div>
             {% endif %}
-            <div id="mm-car-{{ ev.id }}" class="carousel slide gal__carousel mm-carousel" data-bs-ride="false" data-bs-touch="true">
+            <div id="mm-car-{{ ev.id }}" class="carousel slide gal__carousel mm-carousel" data-bs-ride="false" data-bs-touch="true" data-ratio="{{ ev.ratio }}" style="--ratio: {{ ev.ratio }};">
                 <div class="carousel-inner">
                     {% for p in ev.photos %}
                     <div class="carousel-item{% if forloop.first %} active{% endif %}">

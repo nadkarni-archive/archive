@@ -1,6 +1,7 @@
 # In Memoriam content. Titles, authors and dates are taken from the documents and posts themselves.
 events:
   - id: iitg
+    ratio: 1.3333
     venue: Department of Design, IIT Guwahati
     title: Tribute Gathering
     date: 22 October 2026
@@ -8,6 +9,7 @@ events:
     caption: Students, faculty and alumni gathered in the department courtyard, signed the condolence book and planted a tree in his memory.
     photos: [iitg-01, iitg-02, iitg-03, iitg-04, iitg-05, iitg-06, iitg-07, iitg-08, iitg-09, iitg-10, iitg-11, iitg-12, iitg-13, iitg-14, iitg-15, iitg-16, iitg-17, iitg-18, iitg-19, iitg-20, iitg-21]
   - id: idc
+    ratio: 1
     venue: IDC School of Design, IIT Bombay
     title: Condolence Meeting
     date: 27 October 2026
@@ -18,6 +20,7 @@ events:
     caption: Words shared by colleagues, faculty and family at the meeting.
     photos: [idc-01, idc-02, idc-03, idc-04, idc-05, idc-06, idc-07]
   - id: pune
+    ratio: 1.3333
     venue: ADI and the IDC Alumni, Pune
     title: Remembering Prof. Sudhakar Nadkarni
     date: 31 October 2026, 5:00–7:00 pm

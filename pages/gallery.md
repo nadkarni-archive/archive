@@ -43,8 +43,3 @@ permalink: /gallery.html
         {% endfor %}
     </div>
 </div>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('thoughts-carousel').addEventListener('slid.bs.carousel', function (e) { document.getElementById('thoughts-current').textContent = e.to + 1; });
-});
-</script>
