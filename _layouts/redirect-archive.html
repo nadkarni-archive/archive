@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Archive | {{ site.title }}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ '/archive.html' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ '/archive.html' | relative_url }}{{ page.redirect_query }}">
+<script>location.replace('{{ "/archive.html" | relative_url }}' + ({{ page.redirect_query | jsonify }} || '') + (location.search && !{{ page.redirect_query | jsonify }} ? location.search : ''));</script>
+</head><body><p><a href="{{ '/archive.html' | relative_url }}">Go to the archive</a></p></body></html>

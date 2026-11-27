@@ -1,37 +1,34 @@
 ---
-# JS based item page for CB-GH
 layout: default
-custom-foot: js/item-js.html;js/modal-hash-js.html
-gallery: true
 ---
-
-<div class="container py-3">
-    <ul class="breadcrumb h6">
-        <li class="breadcrumb-item"><a class="text-dark" href="{{ '/' | relative_url }}">{{ site.title }}</a></li>
-        <li class="breadcrumb-item"><a class="text-dark" href="{{ '/browse.html' | relative_url }}">Browse</a></li>
-        <li id="bc-title" class="breadcrumb-item active text-dark" aria-current="page"></li>
-    </ul>
-    <div class="my-0 h5 small" id="item-format"></div>
-    <h2 id="item-title" class="mb-3"></h2>
-
-    <div id="loading" class="text-center">
-        <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>
-    </div>
-
-    <div class="row justify-content-center">
-
-        <div class="col-12 col-md-10">
-            <div id="item-content"></div>
-        </div>
-        <div class="col-12 col-md-10">
-            <div id="item-metadata">
+{%- assign items = site.data[site.metadata] -%}
+<div class="pg pg--item">
+    <nav class="it-crumb" aria-label="Breadcrumb"><a href="{{ '/archive.html' | relative_url }}">Archive</a><span aria-hidden="true">/</span><a id="it-kind-link" href="{{ '/archive.html' | relative_url }}"></a></nav>
+    <noscript><p class="it-noscript">This page needs JavaScript to show an item. <a href="{{ '/archive.html' | relative_url }}">Browse the archive</a>.</p></noscript>
+    <article class="it" id="it" hidden>
+        <figure class="it__figure">
+            <a class="it__frame" id="it-full" href="#" target="_blank" rel="noopener"><img id="it-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt=""></a>
+            <figcaption class="it__open"><a id="it-full-2" href="#" target="_blank" rel="noopener">Open full size image</a></figcaption>
+        </figure>
+        <div class="it__text">
+            <span class="chip chip--dark" id="it-kind"></span>
+            <p class="it__source" id="it-source"></p>
+            <h1 class="it__title" id="it-title"></h1>
+            <p class="it__tr" id="it-tr"></p>
+            <p class="it__by" id="it-by"></p>
+            <dl class="it__meta" id="it-meta"></dl>
+            <div class="it__tags" id="it-tags"></div>
+            <div class="it__nav">
+                <a class="it__step" id="it-prev" href="#"><span class="it__step-label">Previous</span><span class="it__step-title"></span></a>
+                <a class="it__step it__step--next" id="it-next" href="#"><span class="it__step-label">Next</span><span class="it__step-title"></span></a>
             </div>
-        </div> 
-    </div>
-
-    <div id="browse-buttons" class="text-center">
-        <a class="btn btn-secondary" href="{{ '/browse.html' | relative_url }}">&laquo; Back to Collection Browse</a>
-    </div>
-    <div id="item-nav"></div>
- 
+            <a class="explore" href="{{ '/archive.html' | relative_url }}"><span class="explore__label">Back to</span><span class="explore__link">The Archive<img src="{{ '/assets/img/site/arrow-right.png' | relative_url }}" alt="" width="32" height="32"></span></a>
+        </div>
+    </article>
+    <div class="it-missing" id="it-missing" hidden><p class="it__title">Item not found.</p><p><a href="{{ '/archive.html' | relative_url }}">Browse the archive</a></p></div>
 </div>
+<script>
+window.NK_ITEMS = [{% for it in items %}{% include nk/item-vars.html item=it %}{"id":{{ it.objectid | jsonify }},"file":{{ it.filename | jsonify }},"title":{{ it.title | jsonify }},"desc":{{ it.description | jsonify }},"creator":{{ it.creator | jsonify }},"date":{{ it.date | jsonify }},"dateLabel":{% if it.date != "" %}{{ it.date | date: "%b %-d, %Y" | jsonify }}{% else %}""{% endif %},"pub":{{ pub | jsonify }},"pubSlug":{{ pub | slugify | jsonify }},"kind":{{ kind | jsonify }},"kindSlug":{{ kind_slug | jsonify }},"lang":{{ lang_name | jsonify }},"year":{{ year | jsonify }},"format":{{ it.format | jsonify }},"identifier":{{ it.identifier | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}];
+window.NK_BASE = {{ '/' | relative_url | jsonify }};
+</script>
+<script src="{{ '/assets/js/item.js' | relative_url }}" defer></script>

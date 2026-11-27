@@ -1,8 +1,6 @@
 ---
-title: Timeline
-layout: timeline
+layout: redirect-archive
 permalink: /timeline.html
-# a timeline visualization will be added below the content in this file
+redirect_query: ""
+sitemap: false
 ---
-
-## Collection Timeline

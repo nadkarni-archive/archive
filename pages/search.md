@@ -1,9 +1,6 @@
 ---
-title: Site Search
-layout: search
+layout: redirect-archive
 permalink: /search/
-# see _data/search-config.csv for display options
-# Lunr.js search will be added below the content in this file
+redirect_query: ""
+sitemap: false
 ---
-
-## Full metadata search:
