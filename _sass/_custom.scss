@@ -90,7 +90,8 @@ p { margin: 0; }
 .explore:hover .explore__link { text-decoration: underline; }
 @include tablet { .explore__link { font-size: 30px; line-height: 42px; } }
 @include phone { .explore__link { font-size: 23px; line-height: 32.2px; } }
-.rule { display: block; height: 1px; background: $line-dark; margin-left: calc(50% - 50vw); width: 100vw; }
+/* full-bleed hairline without 100vw (100vw includes the scrollbar and side panels cause sideways scroll) */
+.rule { display: block; height: 1px; background: $line-dark; box-shadow: 0 0 0 100vmax $line-dark; clip-path: inset(0 -100vmax); }
 .placeholder { color: rgba(47, 56, 51, 0.6); font-style: italic; margin-top: 31px; }
 
 /* ---------- home hero ---------- */
@@ -207,7 +208,7 @@ p { margin: 0; }
 
 /* indian design history (also In Memoriam) */
 .pg--idh { padding: 117px 102px 42px; }
-.idh__top { display: grid; grid-template-columns: 594px 564px; justify-content: space-between; column-gap: 28px; padding-bottom: 57px; }
+.idh__top { display: grid; grid-template-columns: minmax(0, 594px) minmax(0, 564px); justify-content: space-between; column-gap: 28px; padding-bottom: 57px; }
 .idh__title { font-family: $apfel; font-weight: 900; font-size: 50px; line-height: 50px; color: $gg; margin: 0 0 31px; }
 .idh__left p { max-width: 505px; }
 .idh__top p { font-size: 16px; line-height: 22.4px; color: $gg; }
@@ -215,7 +216,7 @@ p { margin: 0; }
 .idh__label { font-weight: 900; font-size: 16px; line-height: 22.4px; margin: 57px 0 24px; }
 .idh__timeline { display: block; width: 996px; max-width: 100%; height: auto; outline: 1px solid $gg; outline-offset: -1px; }
 .pg--idh .explore { margin-top: 57px; }
-@include tablet { .pg--idh { padding: 117px 60px 42px; } .idh__top { grid-template-columns: 1fr 1fr; column-gap: 40px; } }
+@include tablet { .pg--idh { padding: 117px 60px 42px; } .idh__top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 40px; } }
 @include phone {
   .pg--idh { padding: 99px 42px 42px; }
   .idh__top { grid-template-columns: 1fr; row-gap: 28px; }
@@ -226,9 +227,9 @@ p { margin: 0; }
 /* gallery */
 .pg--gallery { background: $ink; color: $cream; padding: 60px 32px 145px; }
 .gal__head { max-width: 1256px; margin: 0 auto; padding-top: 58px; display: flex; justify-content: space-between; gap: 28px; }
-.gal__head-left { display: flex; flex-direction: column; gap: 13px; width: 604px; }
+.gal__head-left { display: flex; flex-direction: column; gap: 13px; flex: 0 1 604px; min-width: 0; }
 .gal__title { font-family: $apfel; font-weight: 900; font-size: 50px; line-height: 50px; color: $cream; margin: 0; }
-.gal__intro { width: 513px; margin-right: 99px; font-size: 16px; line-height: 22.4px; color: $cream; }
+.gal__intro { flex: 0 1 513px; min-width: 0; margin-right: 99px; font-size: 16px; line-height: 22.4px; color: $cream; }
 .gal__carousel-wrap { max-width: 1376px; margin: 20px auto 0; padding: 78px 60px; position: relative; }
 .gal__carousel { position: relative; border-radius: 20px; overflow: hidden; }
 .gal__carousel .carousel-item img { display: block; width: 100%; height: 635px; object-fit: cover; }
@@ -251,9 +252,9 @@ p { margin: 0; }
 .photo-grid__item--6 { grid-column: 3; grid-row: 3; }
 @include tablet {
   .gal__head { flex-direction: column; padding: 58px 48px 0; gap: 23px; }
-  .gal__head-left { width: auto; }
+  .gal__head-left { width: auto; flex: none; }
   .gal__title { font-size: 46px; line-height: 46px; }
-  .gal__intro { width: auto; margin: 0; }
+  .gal__intro { width: auto; margin: 0; flex: none; }
   .gal__carousel-wrap { padding: 78px 48px; }
   .gal__carousel .carousel-item img { height: calc((100vw - 160px) * 0.5046); }
   .photo-grid { max-width: none; margin: 50px 58px 0; }
@@ -261,9 +262,9 @@ p { margin: 0; }
 @include phone {
   .pg--gallery { padding: 100px 16px 107px; }
   .gal__head { flex-direction: column; padding: 20px 10px 0; gap: 23px; }
-  .gal__head-left { width: auto; }
+  .gal__head-left { width: auto; flex: none; }
   .gal__title { font-size: 36px; line-height: 36px; }
-  .gal__intro { width: auto; margin: 0; }
+  .gal__intro { width: auto; margin: 0; flex: none; }
   .gal__carousel-wrap { padding: 0; margin-top: 46px; }
   .gal__carousel .carousel-item img { height: 361px; object-position: left center; }
   .gal__head--photos .chip { display: none; }
@@ -320,11 +321,11 @@ main .btn-outline-dark, main .btn-outline-primary { color: $gg; border-color: $g
 @include phone { .pg--archive, .pg--item { padding: 99px 20px 72px; } }
 
 /* head */
-.ar-head { display: grid; grid-template-columns: 594px 564px; justify-content: space-between; column-gap: 28px; align-items: end; padding-bottom: 57px; }
+.ar-head { display: grid; grid-template-columns: minmax(0, 594px) minmax(0, 564px); justify-content: space-between; column-gap: 28px; align-items: end; padding-bottom: 57px; }
 .ar-head__left { display: flex; flex-direction: column; align-items: flex-start; gap: 21px; }
 .ar-head__title { font-family: $apfel; font-weight: 900; font-size: 50px; line-height: 50px; color: $gg; margin: 0; }
 .ar-head__intro { font-size: 16px; line-height: 22.4px; color: $gg; }
-@include tablet { .ar-head { grid-template-columns: 1fr 1fr; column-gap: 40px; } }
+@include tablet { .ar-head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 40px; } }
 @include phone { .ar-head { grid-template-columns: 1fr; row-gap: 24px; padding-bottom: 40px; } .ar-head__title { font-size: 36px; line-height: 36px; } }
 
 /* search: the site's outlined button shape at input size */
@@ -448,7 +449,7 @@ main .btn-outline-dark, main .btn-outline-primary { color: $gg; border-color: $g
 .it__step-title { font-size: 16px; line-height: 22.4px; color: $orange; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .it__step:hover { color: $orange; } .it__step:hover .it__step-title { text-decoration: underline; }
 .it-missing, .it-noscript { padding: 40px 0; color: $gg; }
-@include tablet { .it { grid-template-columns: 1fr 1fr; column-gap: 40px; } }
+@include tablet { .it { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 40px; } }
 @include phone {
   .it { grid-template-columns: 1fr; row-gap: 32px; padding-top: 24px; }
   .it__figure { position: static; }
@@ -458,3 +459,6 @@ main .btn-outline-dark, main .btn-outline-primary { color: $gg; border-color: $g
   .it__meta { grid-template-columns: 110px 1fr; }
 }
 #about { scroll-margin-top: 96px; }
+
+img, video { max-width: 100%; }
+.pg, .features, .home-main, .ft, .hero { max-width: 100%; }
